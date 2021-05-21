@@ -17,7 +17,7 @@ const height = +svg.attr('height')
 const render = data => {
   const xValue = d => d.population
   const yValue = d => d.country
-  const margin = { top: 20, right: 40, bottom: 20, left: 100 }
+  const margin = { top: 50, right: 40, bottom: 20, left: 100 }
   const innerWidth = width - margin.left - margin.right
   const innerHeight = height - margin.top - margin.bottom
 
@@ -55,6 +55,10 @@ const render = data => {
       .attr('y', d => yScale(yValue(d)))
       .attr('width', d => xScale(xValue(d)))
       .attr('height', yScale.bandwidth())
+
+  g.append('text')
+    .attr('y', -5)
+    .text('Top 10 Most Populous Countries')
 }
 
 csv('data.csv').then(data => {
