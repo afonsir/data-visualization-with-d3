@@ -5,7 +5,8 @@ import {
   max,
   scaleBand,
   axisLeft,
-  axisBottom
+  axisBottom,
+  format
 } from 'd3'
 
 const svg = select('svg')
@@ -32,8 +33,15 @@ const render = data => {
   const g = svg.append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`)
   
+  const xAxisTickFormat = number =>
+    format('.3s')(number)
+      .replace('G', 'B')
+  
+  const xAxis = axisBottom(xScale)
+    .tickFormat(xAxisTickFormat)
+  
   g.append('g').call(axisLeft(yScale))
-  g.append('g').call(axisBottom(xScale))
+  g.append('g').call(xAxis)
     .attr('transform', `translate(0, ${innerHeight})`)
 
   g.selectAll('rect').data(data)
