@@ -39,6 +39,7 @@ const render = data => {
   
   const xAxis = axisBottom(xScale)
     .tickFormat(xAxisTickFormat)
+    .tickSize(-innerHeight)
   
   g.append('g')
     .call(axisLeft(yScale))
@@ -51,6 +52,7 @@ const render = data => {
   xAxisG.select('.domain').remove()
 
   xAxisG.append('text')
+    .attr('class', 'axis-label')
     .attr('y', 45)
     .attr('x', innerWidth / 2)
     .attr('fill', 'black')
@@ -63,6 +65,7 @@ const render = data => {
       .attr('height', yScale.bandwidth())
 
   g.append('text')
+    .attr('class', 'title')
     .attr('y', -5)
     .text('Top 10 Most Populous Countries')
 }
