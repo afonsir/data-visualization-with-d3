@@ -1,0 +1,20 @@
+{
+  "name": "intro-d3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "node src/server.js",
+    "watch": "webpack --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "d3": "^6.7.0",
+    "express": "^4.17.1"
+  }
+}
